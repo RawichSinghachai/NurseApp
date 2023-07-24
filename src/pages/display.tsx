@@ -29,10 +29,6 @@ import axios from 'axios';
 type Props = {}
 
 export default function Display({ }: Props) {
-    const Charts = dynamic(() => import('@/pages/chart'), {
-        ssr: false
-    })
-
     const [convert, setConvert] = useState(false)
 
     const handleConvert = () => {
@@ -112,9 +108,7 @@ export default function Display({ }: Props) {
                     <></>}
 
 
-                {/* <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%', mt: 4, }}>
-                    <Charts/>
-                </Box> */}
+
 
                 <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                     <BottomNavigation
