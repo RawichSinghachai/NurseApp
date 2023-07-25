@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import { pink, grey } from '@mui/material/colors';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import BottomNavigationBar from '@/components/BottomNavigationBar';
 
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -108,24 +109,8 @@ export default function Index() {
           </Button>
         </Box>
 
-
-
-
-
-
-        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-          <BottomNavigation
-            showLabels
-            value={2}
-            onChange={(event, newValue) => setValue(newValue)}
-          >
-            <BottomNavigationAction label="เครื่องชั้ง" icon={<HomeIcon />} onClick={() => { router.push('/home') }} />
-            <BottomNavigationAction label="แปลผล" icon={<AddchartIcon />} onClick={() => { router.push('/display') }} />
-            <BottomNavigationAction label="คำแนะนำ" icon={<FavoriteIcon />} onClick={() => { router.push('/advice') }} />
-            <BottomNavigationAction label="ติดต่อเรา" icon={<ForumIcon />} />
-            <BottomNavigationAction label="โปรไฟล์" icon={<AccountCircleIcon />} onClick={() => { router.push('/profile') }} />
-          </BottomNavigation>
-        </Paper>
+        <BottomNavigationBar/>
+        
       </Box>
     </>
   );

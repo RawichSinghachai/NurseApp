@@ -14,6 +14,7 @@ import { pink } from '@mui/material/colors';
 import { useRouter } from 'next/router'
 import Checkdata from '@/components/Checkdata';
 import Skeleton from '@mui/material/Skeleton';
+import BottomNavigationBar from '@/components/BottomNavigationBar';
 
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -126,7 +127,7 @@ export default function profile({ }: Props) {
                     })}
                 </Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center', }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', mb:8}}>
                     <Button variant="contained" sx={{ bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }}
                         onClick={handleLogOut}>
                         Log out
@@ -137,19 +138,7 @@ export default function profile({ }: Props) {
 
 
 
-                <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                    <BottomNavigation
-                        showLabels
-                        value={4}
-                        onChange={(event, newValue) => setValue(newValue)}
-                    >
-                        <BottomNavigationAction label="เครื่องชั้ง" icon={<HomeIcon />} onClick={() => { router.push('/home') }} />
-                        <BottomNavigationAction label="แปลผล" icon={<AddchartIcon />} onClick={() => { router.push('/display') }} />
-                        <BottomNavigationAction label="คำแนะนำ" icon={<FavoriteIcon />} onClick={() => { router.push('/advice') }} />
-                        <BottomNavigationAction label="ติดต่อเรา" icon={<ForumIcon />} />
-                        <BottomNavigationAction label="โปรไฟล์" icon={<AccountCircleIcon />} onClick={() => { router.push('/profile') }} />
-                    </BottomNavigation>
-                </Paper>
+                <BottomNavigationBar/>
             </Box>
         </>
     )

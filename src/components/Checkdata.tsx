@@ -9,7 +9,7 @@ type Props = {}
 const Checkdata = (props: Props) => {
     const router = useRouter()
     const dispatch = useDispatch()
-
+    
 
 useEffect(() => {
 

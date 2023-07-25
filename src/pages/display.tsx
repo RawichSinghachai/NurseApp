@@ -18,6 +18,7 @@ import IconButton from '@mui/material/IconButton';
 import Image from 'next/image';
 import HbChart from '../../public/chart/HbChart.jpg'
 import WbChart from '../../public/chart/WbChart.jpg'
+import BottomNavigationBar from '@/components/BottomNavigationBar';
 
 import HomeIcon from '@mui/icons-material/Home';
 import AddchartIcon from '@mui/icons-material/Addchart';
@@ -101,7 +102,7 @@ export default function Display({ }: Props) {
                     </Button>
                 </Box>
 
-                {show ? <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', mt: 4, }}>
+                {show ? <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', mt: 4,}}>
                     <Image src={HbChart} alt='chart' height={200} width={200} priority style={{ marginBottom: '32px' }} />
                     <Image src={WbChart} alt='chart' height={200} width={200} priority />
                 </Box> :
@@ -110,19 +111,7 @@ export default function Display({ }: Props) {
 
 
 
-                <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                    <BottomNavigation
-                        showLabels
-                        value={1}
-                        onChange={(event, newValue) => setValue(newValue)}
-                    >
-                        <BottomNavigationAction label="เครื่องชั้ง" icon={<HomeIcon />} onClick={() => { router.push('/home') }} />
-                        <BottomNavigationAction label="แปลผล" icon={<AddchartIcon />} onClick={() => { router.push('/display') }} />
-                        <BottomNavigationAction label="คำแนะนำ" icon={<FavoriteIcon />} onClick={() => { router.push('/advice') }} />
-                        <BottomNavigationAction label="ติดต่อเรา" icon={<ForumIcon />} />
-                        <BottomNavigationAction label="โปรไฟล์" icon={<AccountCircleIcon />} onClick={() => { router.push('/profile') }} />
-                    </BottomNavigation>
-                </Paper>
+                <BottomNavigationBar/>
             </Box>
         </>
     )
