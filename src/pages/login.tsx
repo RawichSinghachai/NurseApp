@@ -21,6 +21,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
+import { motion } from "framer-motion"
 
 type Props = {}
 
@@ -80,10 +81,10 @@ export default function login({ }: Props) {
             }}>
 
                 <form autoComplete='off' onSubmit={handlesubmit}>
-                    <Stack direction='column'>
-                        <TextField label="เบอร์โทรศัพท์" variant="outlined" sx={{ mb: 2 }} name='phone' onChange={handleChange} />
+                    <Box sx={{display:'flex',flexDirection:'column',alignItems:'center'}} >
+                        <TextField label="เบอร์โทรศัพท์" variant="outlined" sx={{ width: '240px', mb: 2 }} name='phone' onChange={handleChange} />
 
-                        <FormControl sx={{ width:'240px',mb: 2 }} variant="outlined">
+                        <FormControl sx={{ width: '240px', mb: 2 }} variant="outlined">
                             <InputLabel htmlFor="outlined-adornment-password">รหัสผ่าน</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
@@ -105,10 +106,12 @@ export default function login({ }: Props) {
                             />
                         </FormControl>
 
-                        <Button variant="contained" sx={{ mb: 2, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit'>
-                            เข้าสู่ระบบ
-                        </Button>
-                    </Stack>
+                        <motion.div whileTap={{ scale: 0.9 }}>
+                            <Button variant="contained" sx={{ width:'240px',mb: 2, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit'>
+                                เข้าสู่ระบบ
+                            </Button>
+                        </motion.div>
+                    </Box>
                 </form>
 
             </Box>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -13,15 +11,10 @@ import axios from 'axios';
 import { pink } from '@mui/material/colors';
 import { useRouter } from 'next/router'
 import Checkdata from '@/components/Checkdata';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Skeleton from '@mui/material/Skeleton';
 import BottomNavigationBar from '@/components/BottomNavigationBar';
-
-
-import HomeIcon from '@mui/icons-material/Home';
-import AddchartIcon from '@mui/icons-material/Addchart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ForumIcon from '@mui/icons-material/Forum';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { motion } from "framer-motion"
 
 type Props = {}
 
@@ -91,7 +84,7 @@ export default function profile({ }: Props) {
                 </Box>
 
 
-                <Box sx={{ bgcolor: 'white', p: 1, mb: 4, borderRadius: 4, maxWidth: "1000px" }}>
+                <Box sx={{ bgcolor: 'white', p: 1, mb: 4, borderRadius: 4, maxWidth: "1400px" }}>
                     <Stack direction="row" justifyContent="flex-start" sx={{ mb: 1 }}>
                         <AccountCircleIcon sx={{ fontSize: '40px', mr: 2 }} />
                         <Typography variant="h4" >
@@ -127,18 +120,19 @@ export default function profile({ }: Props) {
                     })}
                 </Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center', mb:8}}>
-                    <Button variant="contained" sx={{ bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }}
-                        onClick={handleLogOut}>
-                        Log out
-                    </Button>
-
+                <Box sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
+                    <motion.div whileTap={{ scale: 0.9 }}>
+                        <Button variant="contained" sx={{ bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }}
+                            onClick={handleLogOut}>
+                            Log out
+                        </Button>
+                    </motion.div>
                 </Box>
 
 
 
 
-                <BottomNavigationBar/>
+                <BottomNavigationBar />
             </Box>
         </>
     )

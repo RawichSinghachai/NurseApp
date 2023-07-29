@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Scale from '@/components/display/Scale';
@@ -19,13 +17,8 @@ import Image from 'next/image';
 import HbChart from '../../public/chart/HbChart.jpg'
 import WbChart from '../../public/chart/WbChart.jpg'
 import BottomNavigationBar from '@/components/BottomNavigationBar';
-
-import HomeIcon from '@mui/icons-material/Home';
-import AddchartIcon from '@mui/icons-material/Addchart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ForumIcon from '@mui/icons-material/Forum';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from 'axios';
+import { motion } from "framer-motion"
 
 type Props = {}
 
@@ -36,7 +29,6 @@ export default function Display({ }: Props) {
         setConvert((pre) => !pre)
     }
 
-    const [value, setValue] = useState(0);
     const [show, setShow] = useState(false)
     const [data, setData] = useState({
         _id: "",
@@ -68,7 +60,7 @@ export default function Display({ }: Props) {
             getData()
         }
     }, [userdata.id])
-    
+
 
     return (
         <>
@@ -80,29 +72,35 @@ export default function Display({ }: Props) {
 
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 10, mr: 6, width: '100%', }}>
 
-                    <IconButton sx={{ color: grey[900] }} onClick={() => getData()}>
-                        <ChangeCircleIcon sx={{ fontSize: '40px', mr: 2 }} />
-                    </IconButton>
+                    <motion.div whileTap={{ scale: 0.9 }}>
+                        <IconButton sx={{ color: grey[900] }} onClick={() => getData()}>
+                            <ChangeCircleIcon sx={{ fontSize: '40px' }} />
+                        </IconButton>
+                    </motion.div>
 
-                    <Button variant="contained" sx={{ bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }}
-                        onClick={() => handleConvert()}>
-                        Convert
-                    </Button>
+                    <motion.div whileTap={{ scale: 0.9 }}>
+                        <Button variant="contained" sx={{ bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] }, p: 2, ml: 2 }}
+                            onClick={() => handleConvert()}>
+                            Convert
+                        </Button>
+                    </motion.div>
                 </Box>
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', mt: 8 }}>
-                    <Scale title={'ส่วนสูง'} value={convert ? ((parseInt(data.height[data.height.length - 1])*0.0328084).toFixed(2)).toString() : data.height[data.height.length - 1]} unit={convert ? 'ft' : 'cm'} />
-                    <Scale title={'น้ำหนัก'} value={convert ? ((parseInt(data.weight[data.height.length - 1])*2.20462).toFixed(2)).toString() : data.weight[data.height.length - 1] } unit={convert ? 'ibs' : 'kg'} />
+                    <Scale title={'ส่วนสูง'} value={convert ? ((parseInt(data.height[data.height.length - 1]) * 0.0328084).toFixed(2)).toString() : data.height[data.height.length - 1]} unit={convert ? 'ft' : 'cm'} />
+                    <Scale title={'น้ำหนัก'} value={convert ? ((parseInt(data.weight[data.height.length - 1]) * 2.20462).toFixed(2)).toString() : data.weight[data.height.length - 1]} unit={convert ? 'ibs' : 'kg'} />
                 </Box>
 
                 <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%', mt: 4, }}>
-                    <Button variant="contained" sx={{ p: 2, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }}
-                        onClick={() => setShow((pre) => !pre)}>
-                        Show chart
-                    </Button>
+                    <motion.div whileTap={{ scale: 0.9 }}>
+                        <Button variant="contained" sx={{ p: 2, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }}
+                            onClick={() => setShow((pre) => !pre)}>
+                            Show chart
+                        </Button>
+                    </motion.div>
                 </Box>
 
-                {show ? <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', mt: 4,}}>
+                {show ? <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', mt: 4, }}>
                     <Image src={HbChart} alt='chart' height={200} width={200} priority style={{ marginBottom: '32px' }} />
                     <Image src={WbChart} alt='chart' height={200} width={200} priority />
                 </Box> :
@@ -111,7 +109,7 @@ export default function Display({ }: Props) {
 
 
 
-                <BottomNavigationBar/>
+                <BottomNavigationBar />
             </Box>
         </>
     )

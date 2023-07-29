@@ -13,19 +13,14 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import moment from 'moment';
 import axios from 'axios';
 import { pink } from '@mui/material/colors';
-
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Checkdata from '@/components/Checkdata';
-
+import { motion } from "framer-motion"
 
 
 type Props = {}
 
 export default function register({ }: Props) {
-
-    const [showPassword, setShowPassword] = React.useState(false);
-
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
 
     const [babybirthday, setBabyirthday] = useState(null);
 
@@ -139,9 +134,11 @@ export default function register({ }: Props) {
                 </form>
 
                 <Stack direction="row" justifyContent="center">
-                    <Button variant="contained" sx={{ my: 4, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit' >
-                        Confirm
-                    </Button>
+                    <motion.div whileTap={{ scale: 0.9 }}>
+                        <Button variant="contained" sx={{ my: 4, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit' >
+                            Confirm
+                        </Button>
+                    </motion.div>
                 </Stack>
 
 

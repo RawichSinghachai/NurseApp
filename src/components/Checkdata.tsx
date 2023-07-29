@@ -14,8 +14,6 @@ const Checkdata = (props: Props) => {
 useEffect(() => {
 
     //send datauser from database to reducx
-
-
     axios.post(`${process.env.NEXT_PUBLIC_URL}/api/users/auth`, {
         token: sessionStorage.getItem('token')
     },
@@ -30,7 +28,7 @@ useEffect(() => {
 
     //block path when forget login
 
-    //for test
+    //for test (add some path)
     if(!sessionStorage.getItem('token')){
         if(router.pathname === '/home' || router.pathname === '/display'|| router.pathname === '/chart' || router.pathname === '/advice' || router.pathname === '/profile'){
             router.push('/login')
@@ -43,15 +41,6 @@ useEffect(() => {
         } 
     }
 
-
-
-        //when forget login block '/profile' 
-    
-    // if(!sessionStorage.getItem('token')){
-    //     if(router.pathname === '/login'){
-    //         router.back()
-    //     }  
-    // }
 },[])
 
     return (
