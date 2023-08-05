@@ -21,7 +21,7 @@ export default function detailtwo({ }: Props) {
                 </Typography>
 
                 <Typography variant="h4" sx={{ pb: 6 }}>
-                    ช่วงอายู 6-12 เดือน
+                    ช่วงอายุ 6-12 เดือน
                 </Typography>
 
                 <Grid container spacing={2}>

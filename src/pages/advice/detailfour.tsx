@@ -24,7 +24,7 @@ export default function detailfour({ }: Props) {
                 </Typography>
 
                 <Typography variant="h4" sx={{ pb: 6 }}>
-                    ช่วงอายู 3-5 ปี
+                    ช่วงอายุ 3-5 ปี
                 </Typography>
 
                 <Grid container spacing={2}>

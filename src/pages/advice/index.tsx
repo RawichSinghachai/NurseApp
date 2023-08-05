@@ -39,7 +39,7 @@ export default function Index() {
       }}>
 
         <Typography variant="h4" sx={{ pb: 6 }} data-aos="zoom-in-up">
-          ช่วงอายู 0-6 เดือน
+          ช่วงอายุ 0-6 เดือน
         </Typography>
 
 

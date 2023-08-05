@@ -24,7 +24,7 @@ export default function detailthree({ }: Props) {
                 </Typography>
 
                 <Typography variant="h4" sx={{ pb: 6 }}>
-                    ช่วงอายู 1-3 ปี
+                    ช่วงอายุ 1-3 ปี
                 </Typography>
 
                 <Grid container spacing={2}>

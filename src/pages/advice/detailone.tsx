@@ -21,7 +21,7 @@ export default function detailone({ }: Props) {
                 </Typography>
 
                 <Typography variant="h4" sx={{ pb: 6 }}>
-                    ช่วงอายู 0-6 เดือน
+                    ช่วงอายุ 0-6 เดือน
                 </Typography>
 
                 <Box sx={{ bgcolor: "#FF9999", p: 2 }}>

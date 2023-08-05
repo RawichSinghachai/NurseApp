@@ -62,6 +62,8 @@ export default function register({ }: Props) {
             })
 
     }
+    console.log(form)
+    
 
     return (
         <div >

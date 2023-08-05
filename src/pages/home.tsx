@@ -47,7 +47,7 @@ export default function Home() {
 
         <motion.div whileTap={{ scale: 0.9 }}>
           <Button variant="contained" sx={{ bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} onClick={() => handleClick()}>
-            Calculate
+            Confirm
           </Button>
         </motion.div>
 
