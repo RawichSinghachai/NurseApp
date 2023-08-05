@@ -84,7 +84,10 @@ export default function register({ }: Props) {
                         p: 4, borderRadius: 2
                     }}>
                         {/* padding paper large 4 small 2 */}
-                        <TextField label="ขื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='parentname' value={form.parentname} onChange={handleChange} />
+
+                        <Typography variant='h6' sx={{pb:1}}>ข้อมูลผู้ปกครอง</Typography>
+
+                        <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='parentname' value={form.parentname} onChange={handleChange} />
 
                         <Select
                             value={form.relation}
@@ -108,7 +111,9 @@ export default function register({ }: Props) {
 
                         <Typography variant='h6' sx={{ py: 2 }}>AND</Typography>
 
-                        <TextField label="ขื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='babyname' value={form.babyname} onChange={handleChange} />
+                        <Typography variant='h6' sx={{pb:1}}>ข้อมูลเด็ก</Typography>
+
+                        <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='babyname' value={form.babyname} onChange={handleChange} />
 
                         <TextField label="อายุ" variant="outlined" sx={{ pb: 2 }} name='babyage' value={form.babyage} onChange={handleChange} />
 
