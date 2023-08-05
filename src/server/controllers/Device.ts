@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { client } from "./ConfigServer";
 
 
-export const findAll = async () => {
+export const findUser = async () => {
   await client.connect();
   const users = await client.db("nurse").collection("data").find({}).toArray();
   await client.close();
@@ -44,5 +44,5 @@ export const upload = async (id:string, height:string, weight:string, datetochec
     .collection("users")
     .updateOne({_id:objectId},{$push:{height:height,weight:weight,datetocheck:datetocheck}})
   await client.close();
-  return user;
+  return { status: "senddata success" };
 };
