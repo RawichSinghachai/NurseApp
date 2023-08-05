@@ -60,11 +60,6 @@ export default function Display({ }: Props) {
 
     const userdata = useSelector((state: RootState) => state.UserDataStore)
 
-    // const getData = async () => {
-    //     await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/users/${userdata.id}`)
-    //         .then((value: any) => setData(value.data))
-    // }
-
     const getData = async () => {
         setReload((pre)=>pre+1)
     }

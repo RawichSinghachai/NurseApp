@@ -16,11 +16,13 @@ import { pink } from '@mui/material/colors';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Checkdata from '@/components/Checkdata';
 import { motion } from "framer-motion"
-
+import { useRouter } from 'next/router'
 
 type Props = {}
 
 export default function register({ }: Props) {
+
+    const router = useRouter()
 
     const [babybirthday, setBabyirthday] = useState(null);
 
@@ -59,11 +61,11 @@ export default function register({ }: Props) {
                     babybirthday: '',
                 })
                 setBabyirthday(null)
+                router.push('/')
             })
 
     }
-    console.log(form)
-    
+
 
     return (
         <div >
@@ -87,7 +89,7 @@ export default function register({ }: Props) {
                     }}>
                         {/* padding paper large 4 small 2 */}
 
-                        <Typography variant='h6' sx={{pb:1}}>ข้อมูลผู้ปกครอง</Typography>
+                        <Typography variant='h6' sx={{ pb: 1 }}>ข้อมูลผู้ปกครอง</Typography>
 
                         <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='parentname' value={form.parentname} onChange={handleChange} />
 
@@ -113,7 +115,7 @@ export default function register({ }: Props) {
 
                         <Typography variant='h6' sx={{ py: 2 }}>AND</Typography>
 
-                        <Typography variant='h6' sx={{pb:1}}>ข้อมูลเด็ก</Typography>
+                        <Typography variant='h6' sx={{ pb: 1 }}>ข้อมูลเด็ก</Typography>
 
                         <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='babyname' value={form.babyname} onChange={handleChange} />
 
@@ -138,15 +140,17 @@ export default function register({ }: Props) {
                             <DatePicker value={babybirthday} onChange={(newValue) => setBabyirthday(newValue)} sx={{ width: '248px', }} />
                         </LocalizationProvider>
                     </Paper>
-                </form>
 
-                <Stack direction="row" justifyContent="center">
-                    <motion.div whileTap={{ scale: 0.9 }}>
-                        <Button variant="contained" sx={{ my: 4, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit' >
-                            Confirm
-                        </Button>
-                    </motion.div>
-                </Stack>
+
+                    <Stack direction="row" justifyContent="center">
+                        <motion.div whileTap={{ scale: 0.9 }}>
+                            <Button variant="contained" sx={{ my: 4, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit' >
+                                Confirm
+                            </Button>
+                        </motion.div>
+                    </Stack>
+
+                </form>
 
 
 

@@ -10,14 +10,6 @@ import { pink, grey } from '@mui/material/colors';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import BottomNavigationBar from '@/components/BottomNavigationBar';
-
-
-import HomeIcon from '@mui/icons-material/Home';
-import AddchartIcon from '@mui/icons-material/Addchart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ForumIcon from '@mui/icons-material/Forum';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
 import { useRouter } from 'next/router'
 import Checkdata from '@/components/Checkdata';
 
