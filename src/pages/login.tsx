@@ -72,7 +72,7 @@ export default function login({ }: Props) {
 
             <Checkdata />
             <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
-                <Image height={300} width={300} src={logo} alt='logo' priority />
+                <Image height={200} width={200} src={logo} alt='logo' priority />
             </Box>
 
             <Box sx={{

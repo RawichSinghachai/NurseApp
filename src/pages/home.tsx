@@ -31,11 +31,11 @@ export default function Home() {
       }}>
 
         <Box sx={{
-          width: '200px', height: '100px', bgcolor: 'white', borderRadius: 4,
-          display: 'flex', justifyContent: 'center', alignItems: 'center',
+          maxWidth: '300px', height: '100px', bgcolor: 'white', borderRadius: 4,
+          display: 'flex', justifyContent: 'center', alignItems: 'center',px:2
         }}>
           <Typography variant="h6" sx={{ textAlign: 'center' }}>
-            จับน้องยืนขึ้น
+            ให้เด็กนอน/ยืนบนเครื่องชั่ง
           </Typography>
         </Box>
 

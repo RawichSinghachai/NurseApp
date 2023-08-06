@@ -28,7 +28,7 @@ function index({ }: Props) {
       <Box sx={{ display: 'column', p: 2, }}>
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-          <Image height={300} width={300} src={logo} alt='logo' priority />
+          <Image height={150} width={150} src={logo} alt='logo' priority />
         </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 4 }}>
