@@ -74,6 +74,7 @@ export default function profile({ }: Props) {
                         <Typography variant="h5" >
                             {data.parentname ? data.parentname : <Skeleton animation="wave" width={100} height={40} />}
                         </Typography>
+
                     </Paper>
                 </Box>
 
@@ -87,8 +88,12 @@ export default function profile({ }: Props) {
                 <Box sx={{ bgcolor: 'white', p: 1, mb: 4, borderRadius: 4, maxWidth: "1400px" }}>
                     <Stack direction="row" justifyContent="flex-start" sx={{ mb: 1 }}>
                         <AccountCircleIcon sx={{ fontSize: '40px', mr: 2 }} />
-                        <Typography variant="h4" >
+                        <Typography variant="h4" sx={{mr:2}}>
                             {data.babyname ? data.babyname : <Skeleton animation="wave" width={100} height={40} />}
+                        </Typography>
+
+                        <Typography variant="h4" >
+                            {data.babyage ? `อายุ:${data.babyage}ปี` : <Skeleton animation="wave" width={100} height={40} />}
                         </Typography>
                     </Stack>
                     <Divider sx={{ bgcolor: 'black', mt: 2 }} />
