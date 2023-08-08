@@ -47,7 +47,6 @@ export default function Display({ }: Props) {
     const handleClose = () => setOpen(false);
 
 
-
     const [convert, setConvert] = useState(false)
 
     const handleConvert = () => {

@@ -27,11 +27,11 @@ function index({ }: Props) {
       <Checkdata />
       <Box sx={{ display: 'column', p: 2, }}>
 
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4  }}>
           <Image height={150} width={150} src={logo} alt='logo' priority />
         </Box>
 
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 4 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
           <motion.div whileTap={{ scale: 0.9 }}>
             <Button variant="contained" onClick={() => router.push("/login")} sx={{ bgcolor: grey[50], ":hover": { bgcolor: grey[100] }, color: grey[900] }}>
               เข้าสู่ระบบ

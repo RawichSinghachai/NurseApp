@@ -13,7 +13,6 @@ import axios from 'axios';
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/stores/store';
-import { pink } from '@mui/material/colors';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControl from '@mui/material/FormControl';
@@ -22,10 +21,59 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import { motion } from "framer-motion"
+import Modal from '@mui/material/Modal';
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
+import { lightGreen, red, pink ,grey} from '@mui/material/colors';
+
+const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 300,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    py: 4,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+};
 
 type Props = {}
 
 export default function login({ }: Props) {
+
+    const [openSuccess, setOpenSuccess] = React.useState(false);
+    const [openFaild, setOpenFaild] = React.useState(false);
+
+    const handleOpenSuccess = () => {
+        setOpenSuccess(true);
+        setTimeout(() => {
+            handleCloseSuccess()
+        }, 1000);
+    }
+
+    const handleCloseSuccess = () => {
+        setOpenSuccess(false);
+        setForm({
+            phone: '',
+            password: '',
+        })
+        router.push('/home')
+    }
+
+    const handleOpenFaild = () => {
+        setOpenFaild(true);
+        setTimeout(() => {
+            handleCloseFaild()
+        }, 1000);
+    }
+
+    const handleCloseFaild = () => {
+        setOpenFaild(false);
+    }
 
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -43,19 +91,25 @@ export default function login({ }: Props) {
         })
     }
 
+
     const handlesubmit = async (e: any) => {
         e.preventDefault()
         await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/users/login`, {
             ...form
         }).then((value) => {
+            console.log(value.data.status);
+
             if (value.data.token) {
                 sessionStorage.setItem('token', value.data.token)
             }
-            setForm({
-                phone: '',
-                password: '',
-            })
-            router.push('/home')
+
+            if (value.data.status === 'login success') {
+                handleOpenSuccess()
+            }
+            if (value.data.status === 'login faild') {
+                handleOpenFaild()
+            }
+
         })
             .catch(() => {
                 console.log('login fail');
@@ -71,17 +125,17 @@ export default function login({ }: Props) {
         }}>
 
             <Checkdata />
-            <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4,mb:8 }}>
                 <Image height={200} width={200} src={logo} alt='logo' priority />
             </Box>
 
             <Box sx={{
                 bgcolor: 'white', display: 'flex', justifyContent: 'center',
-                borderRadius: 4, p: 4, mb: 4
+                borderRadius: 4, p: 4, mb: 4,
             }}>
 
                 <form autoComplete='off' onSubmit={handlesubmit}>
-                    <Box sx={{display:'flex',flexDirection:'column',alignItems:'center'}} >
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
                         <TextField label="เบอร์โทรศัพท์" variant="outlined" sx={{ width: '240px', mb: 2 }} name='phone' onChange={handleChange} />
 
                         <FormControl sx={{ width: '240px', mb: 2 }} variant="outlined">
@@ -107,12 +161,36 @@ export default function login({ }: Props) {
                         </FormControl>
 
                         <motion.div whileTap={{ scale: 0.9 }}>
-                            <Button variant="contained" sx={{ width:'240px',mb: 2, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit'>
+                            <Button variant="contained" sx={{ width: '240px', mb: 2, bgcolor: pink["A200"], ":hover": { bgcolor: pink["A100"] } }} type='submit'>
                                 เข้าสู่ระบบ
                             </Button>
                         </motion.div>
                     </Box>
                 </form>
+
+                <Modal
+                    open={openSuccess}
+                    onClose={handleCloseSuccess}
+                >
+                    <Box sx={style}>
+                        <CheckIcon sx={{ fontSize: 70, color:grey[50],bgcolor: lightGreen['A400'], borderRadius: '50%', p: 2, mb: 2 }} />
+                        <Typography variant="h5" >
+                            Login Success
+                        </Typography>
+                    </Box>
+                </Modal>
+
+                <Modal
+                    open={openFaild}
+                    onClose={handleCloseFaild}
+                >
+                    <Box sx={style}>
+                        <ClearIcon sx={{ fontSize: 70,color:grey[50], bgcolor: red['A400'], borderRadius: '50%', p: 2, mb: 2 }} />
+                        <Typography variant="h5" >
+                            Login Faild
+                        </Typography>
+                    </Box>
+                </Modal>
 
             </Box>
         </div>
