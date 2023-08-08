@@ -46,7 +46,7 @@ function index({ }: Props) {
 
 
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <Stack direction="row" justifyContent="center" spacing={2} sx={{ p: 1, pb: 2 }}>
+          <Stack direction="row" justifyContent="center" spacing={3} sx={{ p: 1, mb: 1 }}>
 
             <motion.div whileTap={{ scale: 0.9 }}>
               <Button variant="contained" startIcon={<FacebookIcon sx={{ color: indigo[700] }} />} sx={{ bgcolor: grey[50], ":hover": { bgcolor: grey[100] }, color: grey[900] }}>
@@ -61,7 +61,7 @@ function index({ }: Props) {
             </motion.div>
 
           </Stack>
-          {/* bgcolor: teal[500], ":hover": { bgcolor: teal[700] } */}
+
           <Stack direction="row" justifyContent="center" spacing={2} sx={{ p: 1 }}>
             <motion.div whileTap={{ scale: 0.9 }}>
               <Button variant="contained" startIcon={<AppRegistrationIcon />} onClick={() => router.push("/register")} sx={{ bgcolor: grey[50], ":hover": { bgcolor: grey[100] }, color: grey[900] }}>

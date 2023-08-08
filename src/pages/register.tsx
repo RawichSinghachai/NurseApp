@@ -87,7 +87,6 @@ export default function register({ }: Props) {
                         display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
                         p: 4, borderRadius: 2
                     }}>
-                        {/* padding paper large 4 small 2 */}
 
                         <Typography variant='h6' sx={{ pb: 1 }}>ข้อมูลผู้ปกครอง</Typography>
 
@@ -113,9 +112,7 @@ export default function register({ }: Props) {
 
                         <TextField label="รหัสผ่าน" variant="outlined" sx={{ mb: 2 }} name='password' value={form.password} onChange={handleChange} />
 
-                        <Typography variant='h6' sx={{ py: 2 }}>AND</Typography>
-
-                        <Typography variant='h6' sx={{ pb: 1 }}>ข้อมูลเด็ก</Typography>
+                        <Typography variant='h6' sx={{mb: 2}}>ข้อมูลเด็ก</Typography>
 
                         <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='babyname' value={form.babyname} onChange={handleChange} />
 
@@ -151,8 +148,6 @@ export default function register({ }: Props) {
                     </Stack>
 
                 </form>
-
-
 
             </Box>
         </div>
