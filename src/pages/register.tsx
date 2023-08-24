@@ -90,7 +90,7 @@ export default function register({ }: Props) {
 
                         <Typography variant='h6' sx={{ pb: 1 }}>ข้อมูลผู้ปกครอง</Typography>
 
-                        <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='parentname' value={form.parentname} onChange={handleChange} />
+                        <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 ,width: '248px'}} name='parentname' value={form.parentname} onChange={handleChange} />
 
                         <Select
                             value={form.relation}
@@ -108,15 +108,15 @@ export default function register({ }: Props) {
                             <MenuItem value={'อื่นๆ'}>อื่นๆ</MenuItem>
                         </Select>
 
-                        <TextField label="เบอร์โทรศัพท์" variant="outlined" sx={{ my: 2 }} name='phone' value={form.phone} onChange={handleChange} />
+                        <TextField label="เบอร์โทรศัพท์" variant="outlined" sx={{ my: 2,width: '248px' }} name='phone' value={form.phone} onChange={handleChange} />
 
-                        <TextField label="รหัสผ่าน" variant="outlined" sx={{ mb: 2 }} name='password' value={form.password} onChange={handleChange} />
+                        <TextField label="รหัสผ่าน" variant="outlined" sx={{ mb: 2 ,width: '248px'}} name='password' value={form.password} onChange={handleChange} />
 
                         <Typography variant='h6' sx={{mb: 2}}>ข้อมูลเด็ก</Typography>
 
-                        <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2 }} name='babyname' value={form.babyname} onChange={handleChange} />
+                        <TextField label="ชื่อ-นามสกุล" variant="outlined" sx={{ pb: 2,width: '248px' }} name='babyname' value={form.babyname} onChange={handleChange} />
 
-                        <TextField label="อายุ" variant="outlined" sx={{ pb: 2 }} name='babyage' value={form.babyage} onChange={handleChange} />
+                        <TextField label="อายุ" variant="outlined" sx={{ pb: 2,width: '248px' }} name='babyage' value={form.babyage} onChange={handleChange} />
 
                         <Select
                             value={form.babysex}

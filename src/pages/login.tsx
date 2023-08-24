@@ -97,7 +97,6 @@ export default function login({ }: Props) {
         await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/users/login`, {
             ...form
         }).then((value) => {
-            console.log(value.data.status);
 
             if (value.data.token) {
                 sessionStorage.setItem('token', value.data.token)
