@@ -17,7 +17,13 @@ import { motion } from "framer-motion"
 type Props = {}
 
 function index({ }: Props) {
+
   const router = useRouter()
+
+  const guestLogin = () => {
+    router.push("/login?guest=true")
+  }
+
   return (
     <div style={{
       backgroundImage: 'linear-gradient(180deg, rgb(119,33,214,0.33), rgb(238,18,190,0.24) ,rgb(215,94,218,0.15) ,rgb(193,77,234,0.37))',
@@ -35,6 +41,14 @@ function index({ }: Props) {
           <motion.div whileTap={{ scale: 0.9 }}>
             <Button variant="contained" onClick={() => router.push("/login")} sx={{ bgcolor: grey[50], ":hover": { bgcolor: grey[100] }, color: grey[900] }}>
               เข้าสู่ระบบ
+            </Button>
+          </motion.div>
+        </Box>
+
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+          <motion.div whileTap={{ scale: 0.9 }}>
+            <Button variant="contained" onClick={() => guestLogin()} sx={{ bgcolor: red[200], ":hover": { bgcolor: red[300] }, color: grey[900] }}>
+              ทดลองใช้งาน
             </Button>
           </motion.div>
         </Box>

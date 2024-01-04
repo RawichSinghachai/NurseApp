@@ -25,6 +25,7 @@ import Modal from '@mui/material/Modal';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import { lightGreen, red, pink ,grey} from '@mui/material/colors';
+import useEnhancedEffect from '@mui/material/utils/useEnhancedEffect';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -44,6 +45,10 @@ const style = {
 type Props = {}
 
 export default function login({ }: Props) {
+
+    const router = useRouter()
+    const { guest } = router.query;
+    
 
     const [openSuccess, setOpenSuccess] = React.useState(false);
     const [openFaild, setOpenFaild] = React.useState(false);
@@ -79,7 +84,7 @@ export default function login({ }: Props) {
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    const router = useRouter()
+
     const [form, setForm] = useState({
         phone: '',
         password: '',
@@ -90,6 +95,13 @@ export default function login({ }: Props) {
             ...form, [e.target.name]: e.target.value
         })
     }
+
+    useEffect(() => {
+        if(guest){
+            setForm({...form,phone:'123456',password:'123456'})
+        }
+    }, [])
+    
 
 
     const handlesubmit = async (e: any) => {
@@ -132,10 +144,14 @@ export default function login({ }: Props) {
                 bgcolor: 'white', display: 'flex', justifyContent: 'center',
                 borderRadius: 4, p: 4, mb: 4,
             }}>
-
+                
                 <form autoComplete='off' onSubmit={handlesubmit}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
-                        <TextField label="เบอร์โทรศัพท์" variant="outlined" sx={{ width: '240px', mb: 2 }} name='phone' onChange={handleChange} />
+
+                        <TextField label="เบอร์โทรศัพท์" variant="outlined" 
+                        sx={{ width: '240px', mb: 2 }} name='phone' 
+                        onChange={handleChange} 
+                        defaultValue={guest?'123456':''}/>
 
                         <FormControl sx={{ width: '240px', mb: 2 }} variant="outlined">
                             <InputLabel htmlFor="outlined-adornment-password">รหัสผ่าน</InputLabel>
@@ -156,6 +172,7 @@ export default function login({ }: Props) {
                                     </InputAdornment>
                                 }
                                 label="Password"
+                                defaultValue={guest?'123456':''}
                             />
                         </FormControl>
 

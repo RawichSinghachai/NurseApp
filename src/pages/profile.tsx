@@ -93,7 +93,7 @@ export default function profile({ }: Props) {
                         </Typography>
 
                         <Typography variant="h4" >
-                            {data.babyage ? `อายุ:${data.babyage}ปี` : <Skeleton animation="wave" width={100} height={40} />}
+                            {data.babyage ? `อายุ : ${data.babyage} ปี` : <Skeleton animation="wave" width={100} height={40} />}
                         </Typography>
                     </Stack>
                     <Divider sx={{ bgcolor: 'black', mt: 2 }} />
