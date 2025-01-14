@@ -8,7 +8,7 @@ import dog from "../../../public/dog.png";
 import { useSearchParams } from "next/navigation";
 
 
-const Page = () => {
+const EditPage = () => {
   const searchParams = useSearchParams();
   const editMode = searchParams.has("indexBaby");
   const indexBaby = Number(searchParams.get("indexBaby"));
@@ -57,4 +57,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default EditPage;

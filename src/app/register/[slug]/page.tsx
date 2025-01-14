@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Image from "next/image";
 import dog from "../../../../public/dog.png";
 
-const Page = () => {
+const RegisterPage = () => {
 
   return (
     <div>
@@ -54,4 +54,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default RegisterPage;

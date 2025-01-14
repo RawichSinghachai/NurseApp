@@ -23,7 +23,7 @@ import DeleteBabyDialog from "@/components/profile/DeleteBabyDialog";
 import { deleteBabyAction } from "@/action/action";
 import ButtonMotion from "@/components/ButtonMotion";
 
-const Page = () => {
+const ProfilePage = () => {
   const router = useRouter();
   const { user } = useUser();
   const [numberTabs, setNumberTab] = useState(0);
@@ -414,4 +414,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ProfilePage;

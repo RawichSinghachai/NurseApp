@@ -10,7 +10,7 @@ import { useUser } from "@clerk/nextjs";
 import { createParentAction } from "@/action/action";
 import { useParentStore } from "@/stores/store";
 
-const Page = () => {
+const HomePage = () => {
   const { user } = useUser();
   const { fetchParent } = useParentStore();
 
@@ -75,4 +75,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default HomePage;

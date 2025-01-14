@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 import BottomNavigationBar from "@/components/BottomNavigationBar";
 import { useRouter } from "next/navigation";
 
-const Page = () => {
+const AdvicePage = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -226,4 +226,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default AdvicePage;

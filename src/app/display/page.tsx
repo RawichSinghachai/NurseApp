@@ -35,7 +35,7 @@ const modalStyle = {
   p: 4,
 } as const;
 
-const Page = () => {
+const DisplayPage = () => {
   const { user } = useUser();
   const { fetchParent, baby } = useParentStore();
 
@@ -238,4 +238,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default DisplayPage;
