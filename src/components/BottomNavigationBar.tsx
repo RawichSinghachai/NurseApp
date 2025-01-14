@@ -1,49 +1,61 @@
-import React, { useState, useEffect } from 'react'
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import Paper from '@mui/material/Paper';
-import HomeIcon from '@mui/icons-material/Home';
-import AddchartIcon from '@mui/icons-material/Addchart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useRouter } from 'next/router'
+"use client";
+import React, { useEffect, useState } from "react";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Paper from "@mui/material/Paper";
+import HomeIcon from "@mui/icons-material/Home";
+import AddchartIcon from "@mui/icons-material/Addchart";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useRouter, usePathname } from "next/navigation";
+import { grey, pink } from "@mui/material/colors";
 
-type Props = {}
+const navItems = [
+  { label: "Device", icon: <HomeIcon />, path: "/home" },
+  { label: "Results", icon: <AddchartIcon />, path: "/display" },
+  { label: "Advice", icon: <FavoriteIcon />, path: "/advice" },
+  { label: "Profile", icon: <AccountCircleIcon />, path: "/profile" },
+];
 
-export default function BottomNavigationBar({ }: Props) {
+export default function BottomNavigationBar() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [value, setValue] = useState(0);
 
-    const [value, setValue] = useState(0);
-    const router = useRouter()
+  useEffect(() => {
+    const index = navItems.findIndex((item) => item.path === pathname);
+    setValue(index !== -1 ? index : 0);
+  }, [pathname]);
 
-    useEffect(() => {
-        switch (router.pathname) {
-            case '/home':
-                setValue(0)
-                break
-            case '/display':
-                setValue(1)
-                break
-            case '/advice':
-                setValue(2)
-                break
-            case '/profile':
-                setValue(3)
-                break
-        }
-    }, [router])
+  const handleNavigation = (index: number) => {
+    setValue(index);
+    router.push(navItems[index].path);
+  };
 
-    return (
-        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-            <BottomNavigation
-                showLabels
-                value={value}
-                onChange={(event, newValue) => setValue(newValue)}
-            >
-                <BottomNavigationAction label="เครื่องชั้ง" icon={<HomeIcon />} onClick={() => { router.push('/home') }} />
-                <BottomNavigationAction label="แปลผล" icon={<AddchartIcon />} onClick={() => { router.push('/display') }} />
-                <BottomNavigationAction label="คำแนะนำ" icon={<FavoriteIcon />} onClick={() => { router.push('/advice') }} />
-                <BottomNavigationAction label="โปรไฟล์" icon={<AccountCircleIcon />} onClick={() => { router.push('/profile') }} />
-            </BottomNavigation>
-        </Paper>
-    )
+  return (
+    <Paper sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => handleNavigation(newValue)}
+      >
+        {navItems.map((item, index) => (
+          <BottomNavigationAction
+            key={item.label}
+            label={item.label}
+            icon={item.icon}
+            sx={{
+              color: value === index ? pink[500] : grey[600],
+              "& .MuiBottomNavigationAction-label": {
+                color: value === index ? pink[500] : grey[600],
+              },
+              "& svg": {
+                color: value === index ? pink[500] : grey[600],
+              },
+            }}
+            showLabel
+          />
+        ))}
+      </BottomNavigation>
+    </Paper>
+  );
 }
